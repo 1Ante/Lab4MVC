@@ -1,0 +1,8 @@
+﻿@model CustomerListViewModel
+
+
+<h5>Books in the library catalogue</h5>
+@foreach (var book in Model.Books)
+{
+    <partial name="_BookCard" model="book" />
+}

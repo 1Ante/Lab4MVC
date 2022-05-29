@@ -1,0 +1,20 @@
+﻿@model Book
+
+
+<h5>Books</h5>
+<div>
+    <p>
+        Title: @Model.Title<br />Description: @Model.Description<br />
+
+        @if (Model.IsBorrowed == true)
+        {
+            <span>Loan period: @Model.BorrowTime</span>
+        }
+        else
+        {
+            <span>The book is not borrowed.</span>
+        }
+
+        
+</div>
+<a asp-action="List">Back to List</a>

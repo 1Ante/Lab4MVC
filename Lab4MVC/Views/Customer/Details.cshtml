@@ -1,0 +1,44 @@
+﻿@model Customer
+
+
+
+<h4>Customer and borrowed books</h4>
+<div>
+    <p>Name: @Model.FirstName @Model.LastName<br />Address: @Model.Address<br />Phone: @Model.Phone<br /></p>
+     
+
+
+    @foreach (var book in Model.CustomerBooks)
+    {
+
+        <p>
+            Title: @book.Book.Title <br />Decription: @book.Book.Description<br />Loan period: @book.Book.BorrowTime<br />
+
+            @if (book.Book.IsBorrowed == true)
+            {
+                <span>The book is borrowed.</span>
+            }
+            else
+            {
+                <span>The book is not borrowed.</span>
+            }
+
+
+
+        </p>
+    }
+
+
+
+
+    <a asp-controller="Customer" asp-action="Edit" asp-route-id="@Model.CustomerId">Edit this customer</a>
+    <br />
+    <br />
+    <a asp-action="Delete" asp-route-id="@Model.CustomerId">Delete this customer</a>
+    <br />
+    <br />
+    <a asp-action="List">Back to List</a>
+</div>
+
+
+
